@@ -1,0 +1,52 @@
+{
+  "1": {
+    "session": "2020-21",
+    "first_name": "Amit ",
+    "last_name": "Singh",
+    "class": "11",
+    "section": "A",
+    "gender": "Male",
+    "father": "Rishi Singh",
+    "mother": "Reeta Singh",
+    "mobile": "9395720583",
+    "address": "Bazpur"
+  },
+  "2": {
+    "session": "2020-21",
+    "first_name": "Sachin",
+    "last_name": "Kumar",
+    "class": "11",
+    "section": "A",
+    "gender": "Male",
+    "father": "Subhas Kumar",
+    "mother": "Radha Kumar",
+    "mobile": "8775986754`",
+    "address": "Manpur Road Kashipur UK"
+  },
+  "3": {
+    "session": "2020-21",
+    "first_name": "Pawan",
+    "last_name": "Pandey",
+    "class": "10",
+    "section": "B",
+    "gender": "Male",
+    "father": "Mangal Pandey",
+    "mother": "Leela Pandey",
+    "mobile": "6758897534",
+    "address": "Mangalpur U.P."
+  },
+  "4": {
+    "session": "2020-21",
+    "first_name": "Arijit",
+    "last_name": "Singh",
+    "class": "12",
+    "section": "C",
+    "gender": "Male",
+    "father": "Sujit Singh",
+    "mother": "Ushaa Singh",
+    "mobile": "9867542091",
+    "address": "Anand Homes Kashipur UK"
+  },
+  "5": "This Record is Deleted from System",
+  "6": "This Record is Deleted from System"
+}
