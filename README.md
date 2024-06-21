@@ -1,5 +1,7 @@
 Student Information Portal
+
 Overview
+
 The Student Information Portal is a comprehensive student management system built using Python's Tkinter library for the GUI and PIL library for image handling. The portal allows users to add, update, view, and delete student records. It also includes functionalities to save records as a spreadsheet and view class-wise student details.
 
 Features
