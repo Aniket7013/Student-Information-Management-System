@@ -31,3 +31,29 @@ Run the application:
 bash
 Copy code
 python main.py
+Add Student:
+
+Click on the "Add Student" button.
+Fill in the required details and click "ADD".
+The details will be verified and added to the system.
+Update Student:
+
+Click on the "Update Student" button.
+Enter the student ID and the updated details.
+Click "UPDATE".
+Delete Student:
+
+Click on the "Delete Student" button.
+Enter the student ID and confirm deletion.
+View Students:
+
+Click on the "View Students" button.
+All student records will be displayed.
+Class-wise View:
+
+Select the class from the dropdown and click "View Class-wise".
+Student records for the selected class will be displayed.
+Save Records:
+
+Click on the "Save Records" button.
+Choose the location to save the CSV file.
