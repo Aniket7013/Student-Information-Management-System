@@ -1,61 +1,40 @@
-Student Information Portal
+# Student Info Portal
 
-Overview
+The Student Info Portal is a Python-based application designed to manage student information efficiently. It provides functionalities to add, update, delete, view, and filter student records using a graphical user interface (GUI) built with Tkinter.
 
-The Student Information Portal is a comprehensive student management system built using Python's Tkinter library for the GUI and PIL library for image handling. The portal allows users to add, update, view, and delete student records. It also includes functionalities to save records as a spreadsheet and view class-wise student details.
+## Features
 
-Features
-Add Student: Add new student records with details such as session, first name, last name, branch, section, gender, father's name, mother's name, mobile number, and address.
-Update Student: Update existing student records by providing the student ID and the updated details.
-Delete Student: Delete student records by providing the student ID.
-View Students: View all student records.
-Class-wise View: View student records class-wise.
-Save Records: Save the student records as a spreadsheet (CSV file).
-Prerequisites
-Python 3.x
-Tkinter library
-PIL (Pillow) library
-Installation
-Clone the repository:
+- **Add Student**: Enter and save new student details.
+- **Update Student**: Modify existing student information.
+- **Delete Student**: Remove student records.
+- **View All Students**: Display all student records in a formatted list.
+- **Class-wise Display**: Filter and view student records based on the selected branch.
+- **Save Records**: Export student records to a CSV file.
 
-bash
-Copy code
-git clone https://github.com/your-repo/student-info-portal.git
-cd student-info-portal
-Install the required libraries:
+## Getting Started
 
-bash
-Copy code
-pip install pillow
-Usage
-Run the application:
+### Prerequisites
 
-bash
-Copy code
-python main.py
-Add Student:
+Make sure you have Python installed. You can download it from [python.org](https://www.python.org/).
 
-Click on the "Add Student" button.
-Fill in the required details and click "ADD".
-The details will be verified and added to the system.
-Update Student:
+### Installation
 
-Click on the "Update Student" button.
-Enter the student ID and the updated details.
-Click "UPDATE".
-Delete Student:
+1. Clone the repository:
 
-Click on the "Delete Student" button.
-Enter the student ID and confirm deletion.
-View Students:
+    ```bash
+    git clone https://github.com/your-username/student-info-portal.git
+    cd student-info-portal
+    ```
 
-Click on the "View Students" button.
-All student records will be displayed.
-Class-wise View:
+2. Install the required libraries:
 
-Select the class from the dropdown and click "View Class-wise".
-Student records for the selected class will be displayed.
-Save Records:
+    ```bash
+    pip install tkinter pillow
+    ```
 
-Click on the "Save Records" button.
-Choose the location to save the CSV file.
+### Running the Application
+
+To start the application, run the `student_info_portal.py` file:
+
+```bash
+python student_info_portal.py
