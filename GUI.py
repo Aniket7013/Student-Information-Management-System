@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
 """
-Created on Wed Dec  2 03:15:36 2020
+Created on Fri Mar  8 03:15:36 2024
 
 @author: Aniket Rai
 """
@@ -27,7 +26,7 @@ def verifier():
         txt.insert(INSERT,"Type Last Name\n")
         c=1
     if not qdd.get() or qdd.get() == "SELECT":
-        txt.insert(INSERT,"Select Class Properly \n")
+        txt.insert(INSERT,"Select Branch Properly \n")
         d=1
     if not qee.get() or qee.get() == "SELECT":
         txt.insert(INSERT,"Select Section Properly \n")
@@ -58,7 +57,7 @@ def verifier1():
     a=b=c=d=e=f=g=h=i=j=k=0
     txt.delete(1.0,END)
     if not roll1.get():
-        txt.insert(INSERT," \n\n------------------------------>>\n\nType Roll No.. \n")
+        txt.insert(INSERT," \n\n------------------------------>>\n\nType Student ID.. \n")
         a=1
     if not aa1.get() or aa1.get() == "SELECT":
         txt.insert(INSERT,"Select Session Properly \n")
@@ -70,7 +69,7 @@ def verifier1():
         txt.insert(INSERT,"Type Last Name\n")
         c=1
     if not dd1.get() or dd1.get() == "SELECT":
-        txt.insert(INSERT,"Select Class Properly \n")
+        txt.insert(INSERT,"Select Branch Properly \n")
         d=1
     if not ee1.get() or ee1.get() == "SELECT":
         txt.insert(INSERT,"Select Section Properly \n")
@@ -99,7 +98,7 @@ def verifier1():
 
 def add_student() :      # Add student records into existing or new file...
     if verifier() == 0 :
-        student = {"session" : qaa.get() , "first_name" :qbb.get() , "last_name" : qcc.get() , "class" : qdd.get() ,  "section" : qee.get() , "gender" : qff.get() , "father" : qgg.get() , "mother" : qhh.get(),
+        student = {"session" : qaa.get() , "first_name" :qbb.get() , "last_name" : qcc.get() , "branch" : qdd.get() ,  "section" : qee.get() , "gender" : qff.get() , "father" : qgg.get() , "mother" : qhh.get(),
                    "mobile" : qii.get(),"address" : qjj.get()}
 
         return_data = student_create(student)       # Calling function from "main_module"  
@@ -108,8 +107,8 @@ def add_student() :      # Add student records into existing or new file...
         for key, value in return_data.items() :     # Display recorded data/entries
             roll=str(key)
             txt.insert(INSERT,"\n------------------------------>>\n")
-            txt.insert(INSERT,"Your Details -->>"+"\n\nRoll No. : "+roll+"\nName : "+return_data[key]["first_name"]+" "+return_data[key]["last_name"]+
-                       "\nClass : "+return_data[key]["class"]+"\nFather : "+return_data[key]["father"]+"\nMother : "+return_data[key]["mother"]+"\nMobile : "+return_data[key]["mobile"]+
+            txt.insert(INSERT,"Your Details -->>"+"\n\nStudent ID. : "+roll+"\nName : "+return_data[key]["first_name"]+" "+return_data[key]["last_name"]+
+                       "\nBranch : "+return_data[key]["branch"]+"\nFather : "+return_data[key]["father"]+"\nMother : "+return_data[key]["mother"]+"\nMobile : "+return_data[key]["mobile"]+
                        "\nAddress :"+return_data[key]["address"],"\n")
  
         qaa.delete(0,END)          # Clearing entries from the entry box after saving it.......
@@ -127,13 +126,13 @@ def add_student() :      # Add student records into existing or new file...
 def view_student() :        # View all existing sudent records
     return_data = student_list()
     txt.delete(1.0,END)
-    txt.insert(INSERT,"\n Roll No.,\t\tStudent Name,\t\t Class ,\t\t Section,\t\t Father Name ,\t\t\t Mobile ,\t\t\t Address \n")
+    txt.insert(INSERT,"\n Studnet ID,\t\tStudent Name,\t\t Branch ,\t\t Section,\t\t Father Name ,\t\t\t Mobile ,\t\t\t Address \n")
     for key, value in return_data.items() :
         if return_data[key] == "This Record is Deleted from System" :
             continue
         else :
             roll=str(key)
-            txt.insert(INSERT,"\n"+roll+",\t\t"+return_data[key]["first_name"]+" "+return_data[key]["last_name"]+",\t\t"+return_data[key]["class"]+",\t\t"+return_data[key]["section"]+",\t\t"+return_data[key]
+            txt.insert(INSERT,"\n"+roll+",\t\t"+return_data[key]["first_name"]+" "+return_data[key]["last_name"]+",\t\t"+return_data[key]["branch"]+",\t\t"+return_data[key]["section"]+",\t\t"+return_data[key]
                        ["father"]+",\t\t\t"+return_data[key]["mobile"]+",\t\t\t"+return_data[key]["address"],"\n")
             
 
@@ -141,7 +140,7 @@ def view_student() :        # View all existing sudent records
 def update_student() :        # Update an existing student record...
     if verifier1() == 0 :
         rollNo = roll1.get()
-        student = {"session" : aa1.get() , "first_name" : bb1.get() , "last_name" : cc1.get() , "class" : dd1.get() ,  "section" : ee1.get() , "gender" : ff1.get() , "father" : gg1.get() , "mother" : hh1.get(),
+        student = {"session" : aa1.get() , "first_name" : bb1.get() , "last_name" : cc1.get() , "branch" : dd1.get() ,  "section" : ee1.get() , "gender" : ff1.get() , "father" : gg1.get() , "mother" : hh1.get(),
                    "mobile" : ii1.get(),"address" : jj1.get()}
         return_data = student_update(rollNo,student)
         txt.delete(1.0,END)
@@ -150,7 +149,7 @@ def update_student() :        # Update an existing student record...
             if key == rollNo :
                 rollNo=str(key)
                 txt.insert(INSERT,"\n------------------------------>>\n")
-                txt.insert(INSERT,"Updated Details -->>"+"\n\nRoll No. : "+rollNo+"\nName : "+return_data[key]["first_name"]+" "+return_data[key]["last_name"]+"\nClass : "+return_data[key]["class"]+
+                txt.insert(INSERT,"Updated Details -->>"+"\n\nStudent ID : "+rollNo+"\nName : "+return_data[key]["first_name"]+" "+return_data[key]["last_name"]+"\nbranch : "+return_data[key]["branch"]+
                            "\nFather : "+return_data[key]["father"]+"\nMother : "+return_data[key]["mother"]+"\nMobile : "+return_data[key]["mobile"]+"\nAddress :"+return_data[key]["address"],"\n")
                 
         aa1.delete(0,END)         # Clearing entries from the entry box after updating it......
@@ -189,28 +188,28 @@ def saveFile() :              # Save the existing records as a spreadsheet..
 def classwise() :        # Display class wise students' records
     return_data = student_list()
     txt.delete(1.0,END)
-    if combo_class.get() in ("NURSERY","LKG","UKG",'1', '2', '3', '4', '5','6','7','8','9','10','11','12') :
+    if combo_class.get() in ("CSE","IT", "Civil","Mechanical", "FT", "EC", "EEE") :
         for key, value in return_data.items() :
             if return_data[key] == "This Record is Deleted from System" :
                 continue
             else :
                 roll=str(key)
-                if combo_class.get() == return_data[key]["class"]:
-                    txt.insert(INSERT,"\n"+roll+",\t"+return_data[key]["first_name"]+"\t"+return_data[key]["last_name"]+",\t"+return_data[key]["class"]+",\t"+return_data[key]["section"]+",\t"+return_data[key]["gender"]+",\t"+return_data[key]["father"]+",\t"+return_data[key]["mother"]+",\t"+return_data[key]["mobile"]+",\t"+return_data[key]["address"],"\n")
+                if combo_class.get() == return_data[key]["branch"]:
+                    txt.insert(INSERT,"\n"+roll+",\t"+return_data[key]["first_name"]+"  "+return_data[key]["last_name"]+",\t\t"+return_data[key]["branch"]+",\t\t"+return_data[key]["section"]+",\t\t"+return_data[key]["gender"]+",\t\t"+return_data[key]["father"]+",\t\t\t"+return_data[key]["mother"]+",\t\t"+return_data[key]["mobile"]+",\t\t"+return_data[key]["address"],"\n")
                     
                     
                     
 if __name__=="__main__":
     root=Tk()          # Object for tkinter window
     root.state("zoomed")          # Open window in full screen mode
-    root.title("Student Information Management System")      # Title of the main tkinter window
+    root.title("Student Info Portal")      # Title of the main tkinter window
     root.configure(bg="khaki")        # Set main tkinter window bg color 
     root.resizable(0,0)
     #root.attributes('-fullscreen',True)             # Set tkinter window non-resizable
     
     
     # Display school logo image ----------------------------------------------------------------------------
-    img1=Image.open("junior1.png")          
+    img1=Image.open("logosub.png")          
     img2=ImageTk.PhotoImage(img1)
     lbl1=Label(root,bg="khaki",image=img2)
     lbl1.image=img2
@@ -265,7 +264,7 @@ if __name__=="__main__":
         label_a=Label(root,bg="black",text="Session :",font=("Arial bold",12),width=11,fg="white")
         label_b=Label(root,bg="black",text="First Name :",font=("Arial bold",12),width=11,fg='white')
         label_c=Label(root,bg="black",text="Last Name :",font=("Arial bold",12),width=11,fg='white')
-        label_d=Label(root,bg="black",text="Class :",font=("Arial bold",12),width=11,fg="white")
+        label_d=Label(root,bg="black",text="Branch :",font=("Arial bold",12),width=11,fg="white")
         label_e=Label(root,bg="black",text="Section :",font=("Arial bold",12),width=11,fg="white")
         label_f=Label(root,bg="black",text="Gender :",font=("Arial bold",12),width=11,fg="white")
         label_g=Label(root,bg="black",text="Father Name :",font=("Arial bold",12),width=11,fg="white")
@@ -286,7 +285,7 @@ if __name__=="__main__":
         
         
         qaa = ttk.Combobox(root,width=15)    # Session entry
-        qaa['values']= ("SELECT","2015-16","2016-17","2017-18","2018-19","2019-20","2020-21","2021-22","2022-23")
+        qaa['values']= ("SELECT","2018-22","2019-23","2020-24","2021-25","2022-26","2023-27","2024-28","2025-29")
         qaa.current(0)   #set the selected item
         
         qbb=Entry(root,textvariable=fn,width=17,bd=4)    # first name
@@ -294,7 +293,7 @@ if __name__=="__main__":
         qcc=Entry(root,textvariable=ln,width=17,bd=4)    # last name
         
         qdd = ttk.Combobox(root,width=15)    # class name
-        qdd['values']= ("SELECT","NURSERY","LKG","UKG",1, 2, 3, 4, 5,6,7,8,9,10,11,12)
+        qdd['values']= ("SELECT","CSE","IT", "Civil","Mechanical", "FT", "EC", "EEE")
         qdd.current(0)  #set the selected item
         
         qee = ttk.Combobox(root,width=15)    # section name
@@ -369,11 +368,11 @@ if __name__=="__main__":
         root.resizable(0,0)
         
         heading1=Label(root,bg="black",text="UPDATE STUDENT",font=("Arial Rounded MT Bold",22),foreground ="white")
-        label_roll1=Label(root,bg="black",text="Roll Number :",font=("Arial bold",12),width=11,fg='white')
+        label_roll1=Label(root,bg="black",text="Srudent ID :",font=("Arial bold",12),width=11,fg='white')
         label_a1=Label(root,bg="black",text="Session :",font=("Arial bold",12),width=11,fg="white")
         label_b1=Label(root,bg="black",text="First Name :",font=("Arial bold",12),width=11,fg='white')
         label_c1=Label(root,bg="black",text="Last Name :",font=("Arial bold",12),width=11,fg='white')
-        label_d1=Label(root,bg="black",text="Class :",font=("Arial bold",12),width=11,fg="white")
+        label_d1=Label(root,bg="black",text="Branch :",font=("Arial bold",12),width=11,fg="white")
         label_e1=Label(root,bg="black",text="Section :",font=("Arial bold",12),width=11,fg="white")
         label_f1=Label(root,bg="black",text="Gender :",font=("Arial bold",12),width=11,fg="white")
         label_g1=Label(root,bg="black",text="Father Name :",font=("Arial bold",12),width=11,fg="white")
@@ -397,7 +396,7 @@ if __name__=="__main__":
         roll1=Entry(root,textvariable=roll1,width=17,bd=4)  #roll no
                 
         aa1 = ttk.Combobox(root,width=15)    # Session entry
-        aa1['values']= ("SELECT","2015-16","2016-17","2017-18","2018-19","2019-20","2020-21","2021-22","2022-23")
+        aa1['values']= ("SELECT","2018-22","2019-23","2020-24","2021-25","2022-26","2023-27","2024-28","2025-29")
         aa1.current(0) #set the selected item
         
         bb1=Entry(root,textvariable=fn,width=17,bd=4)    # first name
@@ -405,7 +404,7 @@ if __name__=="__main__":
         cc1=Entry(root,textvariable=ln,width=17,bd=4)    # last name
         
         dd1 = ttk.Combobox(root,width=15)    # class name
-        dd1['values']= ("SELECT","NURSERY","LKG","UKG",1, 2, 3, 4, 5,6,7,8,9,10,11,12)
+        dd1['values']= ("SELECT","CSE","IT" "Civil","Mechanical", "FT", "EC", "EEE")
         dd1.current(0) #set the selected item
         
         ee1 = ttk.Combobox(root,width=15)    # section name
@@ -478,7 +477,7 @@ if __name__=="__main__":
         root.resizable(0,0)
         
         heading2=Label(root,bg="black",text="DELETE STUDENT",font=("Arial Rounded MT Bold",22),foreground ="white")
-        label_delete=Label(root,bg="black",text="Roll Number :",font=("Arial bold",12),width=10,fg="white")
+        label_delete=Label(root,bg="black",text="Student ID :",font=("Arial bold",12),width=10,fg="white")
         
         global entry_delete
         entry_delete=Entry(root,textvariable=roll_delete,font=("Arial",12),width=17,bd=4)
@@ -496,23 +495,23 @@ if __name__=="__main__":
         
         
         
-    dashboard=Label(root,bg="khaki",text=" Dashboard ",font=("Arial bold",20),foreground="dark green")
-    dashboard.place(x=590,y=100)
+    dashboard=Label(root,bg="khaki",text=" Dashboard ",font=("Arial bold",25),foreground="#25166d")
+    dashboard.place(x=560,y=100)
 
     # "VIEW ALL" button to display all  existing students' records--------
-    view=Button(root,text="VIEW ALL",background = 'cyan', foreground ="brown",command=lambda: view_student(),width=10,font=("Arial bold",11),bd=6)
+    view=Button(root,text="VIEW ALL",background = '#25166d', foreground ="#c07025",command=lambda: view_student(),width=10,font=("Arial bold",11),bd=6)
     view.place(x=31,y=165)
 
     # "NEW" button to open "ADD STUDENT" tkinter window--------
-    add=Button(root,text="NEW",command=lambda: add_st(),width=10,background = 'cyan', foreground ="brown",font=("Arial bold",11),bd=6)
+    add=Button(root,text="NEW",command=lambda: add_st(),width=10,background = '#25166d', foreground ="#c07025",font=("Arial bold",11),bd=6)
     add.place(x=220,y=165)
 
     # "UPDATE" button to open "UPDATE STUDENT" tkinter window-----
-    update=Button(root,text="UPDATE",command=lambda: update_st(),width=10,background = 'cyan', foreground ="brown",font=("Arial bold",11),bd=6)
+    update=Button(root,text="UPDATE",command=lambda: update_st(),width=10,background = '#25166d', foreground ="#c07025",font=("Arial bold",11),bd=6)
     update.place(x=420,y=165)
 
     # "DELETE" button to open "DELETE STUDENT" tkinter window
-    delete=Button(root,text="DELETE",command=lambda: delete_st(),width=10,background = 'cyan', foreground ="brown",font=("Arial bold",11),bd=6)
+    delete=Button(root,text="DELETE",command=lambda: delete_st(),width=10,background = '#25166d', foreground ="#c07025",font=("Arial bold",11),bd=6)
     delete.place(x=620,y=165)
 
     # Open scrollable pane on the main window---------------
@@ -525,11 +524,11 @@ if __name__=="__main__":
 
     # Filter Student Records Classwise ---------------
     combo_class = ttk.Combobox(root,width=15)    
-    combo_class['values']= ("CLASS","NURSERY","LKG","UKG",1, 2, 3, 4, 5,6,7,8,9,10,11,12)
+    combo_class['values']= ("BRANCH","CSE","IT", "Civil","Mechanical", "FT", "EC", "EEE")
     combo_class.current(0) #set the selected item
     combo_class.place(x=1029,y=173)
 
-    combo_class_button=Button(root,text="SEARCH",command=classwise,width=10,background = 'cyan', foreground ="brown",font=("Arial bold",11),bd=6)
+    combo_class_button=Button(root,text="SEARCH",command=classwise,width=10,background = '#25166d', foreground ="#c07025",font=("Arial bold",11),bd=6)
     combo_class_button.place(x=1143,y=165)
 
     root.mainloop()
